@@ -196,6 +196,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\PatientProvider::class,
         App\Providers\AddressProvider::class,
+        App\Providers\CnsProvider::class,
 
     ],
 

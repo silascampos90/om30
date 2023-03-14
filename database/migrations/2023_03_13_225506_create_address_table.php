@@ -17,7 +17,7 @@ return new class () extends Migration {
             $table->unsignedBigInteger('patient_id');
             $table->string('cep');
             $table->string('address');
-            $table->string('complement');
+            $table->string('complement')->nullable();
             $table->integer('number');
             $table->string('district');
             $table->string('state');

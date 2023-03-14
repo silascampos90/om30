@@ -1,0 +1,7 @@
+.input-invalid {
+    border-color: #f06548;
+    padding-right: calc(1.5em + 1rem);
+    background-repeat: no-repeat;
+    background-position: right calc(.375em + .25rem) center;
+    background-size: calc(.75em + .5rem) calc(.75em + .5rem)
+}

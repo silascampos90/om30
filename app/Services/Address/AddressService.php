@@ -1,17 +1,18 @@
 <?php
 
-namespace App\Services\Patient;
+namespace App\Services\Address;
 
-use App\Repositories\Patient\PatientRepositoryContracts;
+use App\Models\Patient;
+use App\Repositories\Address\AddressRepositoryContracts;
 
-class PatientService implements PatientServiceContracts
+class AddressService implements AddressServiceContracts
 {
     /**
-     * @var PatientRepositoryContracts
+     * @var AddressRepositoryContracts
      */
     protected $patientRepository;
 
-    public function __construct(PatientRepositoryContracts $patientRepository)
+    public function __construct(AddressRepositoryContracts $patientRepository)
     {
         $this->patientRepository = $patientRepository;
     }
@@ -19,8 +20,9 @@ class PatientService implements PatientServiceContracts
     /**
      * @inheritdoc
      */
-    public function store(array $date)
+    public function store(array $data, Patient $patient)
     {
-        return $this->patientRepository->store($date);
+        $data['patient_id'] = $patient->id;
+        return $this->patientRepository->store($data);
     }
 }

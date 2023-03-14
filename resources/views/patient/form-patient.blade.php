@@ -20,14 +20,14 @@
             </div><!-- end card header -->
             <div class="card-body">
                 <div class="live-preview">
-                    <form action="" id="patientForm" method="post">
+                    <form action="" id="patientForm" class="" method="post">
                         @csrf
                         <div class="row gy-4">
                             <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label for="basiInput" class="form-label">Nome do Paciente</label>
                                     <input type="text" name="name" class="form-control" id="basiInput"
-                                        placeholder="Nome do Paciente">
+                                        placeholder="Nome do Paciente" required>
                                 </div>
                             </div>
                             <!--end col-->
@@ -35,23 +35,26 @@
                                 <div>
                                     <label for="labelInput" class="form-label">Nome da Mãe</label>
                                     <input type="text" class="form-control" name="motherName"
-                                        placeholder="Nome da mãe do paciente">
+                                        placeholder="Nome da mãe do paciente" required>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label for="placeholderInput" class="form-label">CPF</label>
-                                    <input type="text" name="cpf" class="form-control" id="placeholderInput"
-                                        placeholder="CPF do paciente">
+                                    <input type="text" name="cpf" class="form-control" id="patient_cpf"
+                                        placeholder="CPF do paciente" required>
                                 </div>
                             </div>
                             <!--end col-->
                             <div class="col-xxl-3 col-md-6">
-                                <div>
+                                <div class="has-validation">
                                     <label for="valueInput" class="form-label">CNS</label>
-                                    <input type="text" class="form-control" name="cns"
-                                        placeholder="Número do cartão nacional do sus">
+                                    <input type="text" id="patientCns" onchange="validateCns(this.value)" maxlength="15" class="form-control" name="cns"
+                                        placeholder="Número do cartão nacional do sus" required>
+                                        <div id="patientCnsError" class="invalid-feedback">
+                                            Cartão do SUS inválido.
+                                        </div>
                                 </div>
                             </div>
                             <div class="card-header align-items-center d-flex">
@@ -63,8 +66,8 @@
                                 <div>
                                     <label class="form-label">CEP</label>
                                     <div class="input-group" data-input-flag>
-                                        <input type="text" class="form-control rounded-end flag-input" value=""
-                                            placeholder="Cep da Residência"/>
+                                        <input type="text" name="cep" class="form-control rounded-end flag-input" value=""
+                                            placeholder="Cep da Residência" id="patient_cep" required/>
                                         <button class="btn btn-light border" type="button" title="Pesquisar Endereço" ><span class="mdi mdi-home-search-outline"></span></button>
                                     </div>
                                 </div>
@@ -73,14 +76,14 @@
                             <div class="col-xxl-5 col-md-6">
                                 <div>
                                     <label for="endereco" class="form-label">Endereço</label>
-                                    <input type="text" class="form-control" name="endereco" placeholder="Endereço"
-                                        value="">
+                                    <input type="text" class="form-control" name="address" placeholder="Endereço"
+                                        value="" required>
                                 </div>
                             </div>
                             <div class="col-xxl-2 col-md-6">
                                 <div>
                                     <label for="complemento" class="form-label">Complemento</label>
-                                    <input type="text" class="form-control" name="complemento" placeholder="Complemnto"
+                                    <input type="text" class="form-control" name="complement" placeholder="Complemnto"
                                         value="">
                                 </div>
                             </div>
@@ -88,28 +91,28 @@
                                 <div>
                                     <label for="number" class="form-label">Número</label>
                                     <input type="text" class="form-control" name="number" placeholder="Bairro"
-                                        value="">
+                                        value="" required>
                                 </div>
                             </div>
                             <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label for="bairro" class="form-label">Bairro</label>
-                                    <input type="text" class="form-control" name="bairro" placeholder="Bairro"
-                                        value="">
+                                    <input type="text" class="form-control" name="district" placeholder="Bairro"
+                                        value="" required>
                                 </div>
                             </div>
                             <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label for="estado" class="form-label">Estado</label>
-                                    <input type="text" class="form-control" name="estado" placeholder="Bairro"
+                                    <input type="text" class="form-control" name="state" placeholder="Bairro"
                                         value="">
                                 </div>
                             </div>
                             <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label for="cidade" class="form-label">Cidade</label>
-                                    <input type="text" class="form-control" name="cidade" placeholder="Cidade"
-                                        value="">
+                                    <input type="text" class="form-control" name="city" placeholder="Cidade"
+                                        value="" required>
                                 </div>
                             </div>
                             <!--end col-->
@@ -134,8 +137,6 @@
 <!--end row-->
 @endsection
 @section('script')
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.19.0/jquery.validate.min.js"></script>
     <script src="{{ URL::asset('/assets/libs/prismjs/prismjs.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/custom/patient.js') }}"></script>

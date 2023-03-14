@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Builders\Responses\ResponseBuilder;
 use App\Http\Requests\PatientRequest;
+use App\Services\Address\AddressServiceContracts;
 use App\Services\Patient\PatientServiceContracts;
+use Illuminate\Http\Response;
 
 class PatientController extends Controller
 {
@@ -13,12 +16,20 @@ class PatientController extends Controller
     protected $patientService;
 
     /**
+     * @var AddressServiceContracts
+     */
+    protected $addressService;
+
+    /**
      * @param PatientServiceContracts $patientService
+     * @param AddressServiceContracts $addressService
      */
     public function __construct(
-        PatientServiceContracts $patientService
+        PatientServiceContracts $patientService,
+        AddressServiceContracts $addressService
     ) {
         $this->patientService = $patientService;
+        $this->addressService = $addressService;
     }
 
     public function view()
@@ -26,16 +37,29 @@ class PatientController extends Controller
         return view('patient.form-patient');
     }
 
+    /**
+     * @param PatientRequest $request
+     */
     public function store(PatientRequest $request)
     {
         try {
+            $data = $request->all();
             $validated = $request->validated();
 
             $patient = $this->patientService->store($validated);
 
-            return $this->patientService->store($validated);
+            $this->addressService->store($data, $patient);
+
+            return ResponseBuilder::init()
+                ->data($data)
+                ->status(Response::HTTP_CREATED)
+                ->message('Paciente Criado Com Sucesso')
+                ->build();
         } catch (\Exception $e) {
-            return $e->getMessage();
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_BAD_REQUEST)
+                ->message($e->getMessage())
+                ->build();
         }
     }
 }

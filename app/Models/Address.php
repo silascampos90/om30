@@ -10,6 +10,8 @@ class Address extends Model
 {
     use HasFactory;
 
+    protected $table = 'address';
+
     protected $fillable = [
         'cep',
         'address',
@@ -18,6 +20,7 @@ class Address extends Model
         'district',
         'state',
         'city',
+        'patient_id'
     ];
 
     public function patient(): BelongsTo
