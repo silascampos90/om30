@@ -68,7 +68,7 @@
                                     <div class="input-group" data-input-flag>
                                         <input type="text" name="cep" class="form-control rounded-end flag-input" value=""
                                             placeholder="Cep da Residência" id="patient_cep" required/>
-                                        <button class="btn btn-light border" type="button" title="Pesquisar Endereço" ><span class="mdi mdi-home-search-outline"></span></button>
+                                        <button class="btn btn-light border" id="getAddresCep" type="button" title="Pesquisar Endereço" ><span class="mdi mdi-home-search-outline"></span></button>
                                     </div>
                                 </div>
                             </div>

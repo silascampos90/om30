@@ -18,23 +18,6 @@ function removeDot(field)
     return field.match(regex).join("");
 }
 
-function isValid(s)
-{
-	if (s.matches("[1-2]\\d{10}00[0-1]\\d") || s.matches("[7-9]\\d{14}")) {
-		return somaPonderada(s) % 11 == 0;
-	}
-	return false;
-}
-
-function somaPonderada(s) {
-	cs = s.toCharArray();
-	soma = 0;
-	for (i = 0; i < cs.length; i++) {
-		soma += Character.digit(cs[i], 10) * (15 - i);
-	}
-	return soma;
-}
-
 const initCns = [1,2];
 
 function validateCns(cns)
@@ -82,7 +65,6 @@ function validaCnsProv(cns) {
 		validCns = true
 	}
 }
-
 
 function validaCNS(vlrCNS) {
     // Formulário que contem o campo CNS

@@ -51,6 +51,34 @@ $('#patientSave').click(function(e) {
     }
 });
 
+$('#getAddresCep').click(function(e) {
+
+    e.preventDefault();
+
+    patient.cep = removeDot($("input[name=cep]").val());
+
+    if (validarFormulario()) {
+            $.ajax({
+                method: 'post',
+                url: 'api/patient/cep/find',
+                data: patient
+            }).fail(function(res) {
+                showToasfy('success', 'Sucesso', res.msg)
+
+            }).done(function(res) {
+                if (res.sucesso == true) {
+                    showToasfy('success', 'Sucesso', res.msg)
+                } else {
+                    res.msg.map(function($dado) {
+                        showToasfy('error', 'Erro', $dado);
+                    })
+
+                };
+            });
+
+    }
+});
+
 function validarFormulario() {
     return $('#patientForm').valid();
 }

@@ -197,6 +197,8 @@ return [
         App\Providers\PatientProvider::class,
         App\Providers\AddressProvider::class,
         App\Providers\CnsProvider::class,
+        App\Providers\ViaCepClientProvider::class,
+        App\Providers\ViaCepServiceProvider::class,
 
     ],
 

@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('patient/store', [PatientController::class, 'store'])->name('store.patient');
+Route::post('patient/cep/find', [PatientController::class, 'cepFind'])->name('cep.find.patient');
