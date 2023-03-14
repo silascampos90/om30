@@ -19,4 +19,12 @@ class AddressRepository extends BaseRepository implements AddressRepositoryContr
     {
         $this->model = $model;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function updateByPatient(array $data, int $id)
+    {
+        return $this->model->where('patient_id', $id)->update($data);
+    }
 }

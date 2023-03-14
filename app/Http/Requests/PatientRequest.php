@@ -33,6 +33,7 @@ class PatientRequest extends FormRequest
             'district' => 'required',
             'state' => 'required',
             'city' => 'required',
+            'foto' => 'mimes:jpeg,bmp,png',
         ];
     }
 

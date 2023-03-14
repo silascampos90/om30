@@ -11,7 +11,7 @@ function showToasfy(message, type)
         position: "center", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            background: "linear-gradient(to right, #00b09b, #00b09b)"
+            background: type == 'success' ? "linear-gradient(to right, #00b09b, #1dc5b1)" : "linear-gradient(to right, #D14426, #E03B2B)"
         , }
         , onClick: function() {} // Callback after click
     }).showToast();

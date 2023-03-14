@@ -24,4 +24,9 @@ interface PatientServiceContracts
      * @param array $relation
      */
     public function getByIdAndWithRelations(int $id, array $relation);
+
+    /**
+    * @param array $data
+    */
+    public function update(array $data);
 }

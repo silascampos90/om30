@@ -138,7 +138,7 @@
 
                             <!--end col-->
                         </div>
-                        <input type="hiden" class="form-control" name="id" value="{{$patient->id}}"  >
+                        <input type="hidden" class="form-control" name="id" value="{{$patient->id}}"  />
                         <div class="">
                             <div class="" style="display: flex;justify-content: end; margin-top: 10px;">
                                 <button type="button" style="margin-right: 10px" class="btn btn-warning waves-effect waves-light">Cancelar</button>

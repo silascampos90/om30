@@ -4,17 +4,18 @@ namespace App\Services\Address;
 
 use App\Models\Patient;
 use App\Repositories\Address\AddressRepositoryContracts;
+use Illuminate\Support\Arr;
 
 class AddressService implements AddressServiceContracts
 {
     /**
      * @var AddressRepositoryContracts
      */
-    protected $patientRepository;
+    protected $addressRepository;
 
-    public function __construct(AddressRepositoryContracts $patientRepository)
+    public function __construct(AddressRepositoryContracts $addressRepository)
     {
-        $this->patientRepository = $patientRepository;
+        $this->addressRepository = $addressRepository;
     }
 
     /**
@@ -23,7 +24,15 @@ class AddressService implements AddressServiceContracts
     public function store(array $data, Patient $patient)
     {
         $data['patient_id'] = $patient->id;
-        return $this->patientRepository->store($data);
+        return $this->addressRepository->store($data);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function updateWithRelation(array $data)
+    {
+        return $this->addressRepository->updateById($data, $data['id']);
     }
 
     /**
@@ -31,6 +40,16 @@ class AddressService implements AddressServiceContracts
      */
     public function update(array $data)
     {
-        return $this->patientRepository->updateById($data, $data['id']);
+        $address = Arr::only($data, [
+            'cep',
+            'address',
+            'complement',
+            'number',
+            'district',
+            'state',
+            'city',
+        ]);
+
+        return $this->addressRepository->updateByPatient($address, $data['id']);
     }
 }
