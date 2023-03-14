@@ -62,13 +62,21 @@
                                 </h5>
                             </div><!-- end card header -->
                             <!--end col-->
+
                             <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label class="form-label">CEP</label>
                                     <div class="input-group" data-input-flag>
-                                        <input type="text" name="cep" class="form-control rounded-end flag-input" value=""
+                                        <input type="text" name="cep" class="form-control rounded-end flag-input"
                                             placeholder="Cep da Residência" id="patient_cep" required/>
-                                        <button class="btn btn-light border" id="getAddresCep" type="button" title="Pesquisar Endereço" ><span class="mdi mdi-home-search-outline"></span></button>
+                                        <button class="btn btn-light border" id="getAddresCep" type="button" title="Pesquisar Endereço" >
+                                            <span id="iconSearch" class="mdi mdi-home-search-outline">
+                                            </span>
+                                            <div style="display: none" id="loadSearch" class="loader">
+                                                <div class="loader-wheel">
+                                                </div>
+                                            </div>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -83,7 +91,7 @@
                             <div class="col-xxl-2 col-md-6">
                                 <div>
                                     <label for="complemento" class="form-label">Complemento</label>
-                                    <input type="text" class="form-control" name="complement" placeholder="Complemnto"
+                                    <input type="text" class="form-control" name="complement" placeholder="Complemeto"
                                         value="">
                                 </div>
                             </div>

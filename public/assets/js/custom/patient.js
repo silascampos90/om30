@@ -53,30 +53,35 @@ $('#patientSave').click(function(e) {
 
 $('#getAddresCep').click(function(e) {
 
-    e.preventDefault();
+e.preventDefault();
 
-    patient.cep = removeDot($("input[name=cep]").val());
+patient.cep = removeDot($("input[name=cep]").val());
 
-    if (validarFormulario()) {
-            $.ajax({
-                method: 'post',
-                url: 'api/patient/cep/find',
-                data: patient
-            }).fail(function(res) {
-                showToasfy('success', 'Sucesso', res.msg)
+    $('#loadSearch').show();
+    $('#iconSearch').hide();
+    $.ajax({
+        method: 'post',
+        url: 'api/patient/cep/find',
+        data: patient
+    }).fail(function(res, status) {
 
-            }).done(function(res) {
-                if (res.sucesso == true) {
-                    showToasfy('success', 'Sucesso', res.msg)
-                } else {
-                    res.msg.map(function($dado) {
-                        showToasfy('error', 'Erro', $dado);
-                    })
+        showToasfy('success', 'Sucesso', res.msg)
 
-                };
-            });
+    }).done(function(res, status) {
+        $('#loadSearch').hide();
+        $('#iconSearch').show();
 
-    }
+        $("input[name=address]").val(res.data.logradouro);
+        $("input[name=complement]").val(res.data.complemento);
+        $("input[name=number]").val(res.data.numero);
+        $("input[name=district]").val(res.data.bairro);
+        $("input[name=state]").val(res.data.uf);
+        $("input[name=city]").val(res.data.localidade);
+
+         showToasfy('success', 'Sucesso', res.msg);
+
+    });
+
 });
 
 function validarFormulario() {

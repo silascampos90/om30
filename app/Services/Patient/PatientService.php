@@ -4,6 +4,7 @@ namespace App\Services\Patient;
 
 use App\Repositories\Patient\PatientRepositoryContracts;
 use App\Services\ViaCep\ViaCepServiceContracts;
+use Illuminate\Support\Facades\Cache;
 
 class PatientService implements PatientServiceContracts
 {
@@ -40,7 +41,11 @@ class PatientService implements PatientServiceContracts
     public function findPatientCep(array $cep)
     {
         $cep = $cep['cep'];
+        $cacheKey = 'viaCep';
 
-        return $this->viaCepClient->get("{$cep}/json/");
+        return Cache::store('redis')
+            ->remember($cacheKey, 86400, function () use ($cep) {
+                return $this->viaCepClient->get("{$cep}/json/");
+            });
     }
 }

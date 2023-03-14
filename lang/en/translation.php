@@ -116,7 +116,7 @@ return [
     'scrollSpy' => 'ScrollSpy',
     'widgets' => 'Widgets',
     'forms' => 'Forms',
-    'basic-elements' => 'Basic Elements',
+    'basic-elements' => 'Om30',
     'form-select' => 'Form Select',
     'checkboxs-radios' => 'Checkboxs & Radios',
     'pickers' => 'Pickers',

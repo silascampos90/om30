@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Builders\Responses\ResponseBuilder;
 use App\Http\Requests\CepRequest;
 use App\Http\Requests\PatientRequest;
+use App\Http\Resources\ViaCepResource;
 use App\Services\Address\AddressServiceContracts;
 use App\Services\Patient\PatientServiceContracts;
 use Illuminate\Http\Response;
@@ -75,9 +76,9 @@ class PatientController extends Controller
             $cep = $this->patientService->findPatientCep($validated);
 
             return ResponseBuilder::init()
-                ->data($cep)
+                ->data(ViaCepResource::make($cep))
                 ->status(Response::HTTP_CREATED)
-                ->message('Paciente Criado Com Sucesso')
+                ->message(! isset($data['erro']) ? 'Endereço encontrado.' : 'Endereço não encontrado.')
                 ->build();
         } catch (\Exception $e) {
             return ResponseBuilder::init()

@@ -24,7 +24,7 @@ class CepRequest extends FormRequest
     public function rules()
     {
         return [
-            'cep' => 'required'
+            'cep' => 'required|max:8'
         ];
     }
 
@@ -37,6 +37,7 @@ public function messages(): array
 {
     return [
         'cep.required' => 'Cep é Obrigatório',
+        'cep.max' => 'Cep deve conter no máximo 8 caracteres.',
     ];
 }
 }
