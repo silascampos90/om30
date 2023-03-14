@@ -112,7 +112,7 @@ var options = {
 
 var chart = new ApexCharts(document.querySelector("#basic_treemap"), options);
 chart.render();
-} 
+}
 
 // Multi - Dimensional Treemap
 var chartTreemapMultiColors = getChartColorsArray("multi_treemap");

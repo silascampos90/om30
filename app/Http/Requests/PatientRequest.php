@@ -13,7 +13,7 @@ class PatientRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,9 @@ class PatientRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'name2' => 'required'
+            'mother_name' => 'required',
+            'cpf' => 'required',
+            'cns' => 'required',
         ];
     }
 
@@ -38,6 +40,9 @@ public function messages(): array
 {
     return [
         'name.required' => 'Nome é Obrigatório',
+        'motherName.required' => 'Nome da mãe é Obrigatório',
+        'cpf.required' => 'CPF é Obrigatório',
+        'cns.required' => 'CNS é Obrigatório',
     ];
 }
 }

@@ -306,7 +306,7 @@ if (localStorage.getItem("invoice_no") === null && localStorage.getItem("option"
 
 // Invoice Data Load On Form
 if ((viewobj != '') && (options == "edit-invoice")) {
-	
+
 	document.getElementById("registrationNumber").value = viewobj.company_details.legal_registration_no;
 	document.getElementById("companyEmail").value = viewobj.company_details.email;
 	document.getElementById('companyWebsite').value = viewobj.company_details.website;
@@ -441,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			var product_rate = parseInt(element.querySelector("#productRate-"+count).value);
 			var product_qty = parseInt(element.querySelector("#product-qty-"+count).value);
 			var product_price = (element.querySelector("#productPrice-"+count).value).split("$");;
-			
+
 			var product_obj = {
 				product_name: product_name,
 				product_details: product_details,
@@ -452,7 +452,7 @@ document.addEventListener("DOMContentLoaded", function () {
 			new_product_obj.push(product_obj);
 			count++;
 		});
-		
+
 		if (formEvent.checkValidity() === false) {
 			formEvent.classList.add("was-validated");
 		} else {

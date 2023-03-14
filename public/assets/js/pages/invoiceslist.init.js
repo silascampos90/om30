@@ -1760,7 +1760,7 @@ function ischeckboxcheck() {
             } else {
                 e.target.closest("tr").classList.remove("table-active");
             }
-  
+
             var checkedCount = document.querySelectorAll('[name="chk_child"]:checked').length;
             if (e.target.closest("tr").classList.contains("table-active")) {
                 (checkedCount > 0) ? document.getElementById("remove-actions").style.display = 'block': document.getElementById("remove-actions").style.display = 'none';
@@ -1844,7 +1844,7 @@ function deleteMultiple() {
             ids_array.push(items[i].value);
         }
     }
-    
+
     if (typeof ids_array !== 'undefined' && ids_array.length > 0) {
         Swal.fire({
             title: "Are you sure?",

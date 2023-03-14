@@ -14,6 +14,7 @@ return new class () extends Migration {
     {
         Schema::create('address', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('patient_id');
             $table->string('cep');
             $table->string('address');
             $table->string('complement');
@@ -22,6 +23,10 @@ return new class () extends Migration {
             $table->string('state');
             $table->string('city');
             $table->timestamps();
+
+            $table->foreign('patient_id')
+            ->references('id')
+            ->on('patients');
         });
     }
 
@@ -32,6 +37,10 @@ return new class () extends Migration {
      */
     public function down()
     {
+        Schema::table('address', function (Blueprint $table) {
+            $table->dropForeign(['patient_id']);
+        });
+
         Schema::dropIfExists('address');
     }
 };

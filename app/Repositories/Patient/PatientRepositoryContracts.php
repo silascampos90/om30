@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Patient;
 
-use App\Repositories\BaseRepositoryContract;
+use App\Repositories\BaseRepositoryContracts;
 
-interface PatientRepositoryContracts extends BaseRepositoryContract
+interface PatientRepositoryContracts extends BaseRepositoryContracts
 {
 }

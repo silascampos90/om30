@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Services\Patient;
+namespace App\Services\Address;
 
-interface PatientServiceContracts
+interface AddressServiceContracts
 {
     /**
      * @param array $data

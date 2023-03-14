@@ -198,7 +198,7 @@ Array.from(document.querySelectorAll('.file-manager-menu a')).forEach(function (
     }else{
       document.getElementById("filetype-title").innerHTML = "Recent file";
     }
-    
+
     if (tabname != 'My Drive' && tabname != 'Important' && tabname != 'Recents') {
       var filterData = allFileList.filter(filelist => filelist.filetype === tabname);
       document.getElementById("folder-list").style.display = "none";
@@ -294,7 +294,7 @@ function editFolderList() {
   Array.from(document.querySelectorAll(".folder-card")).forEach(function (item) {
     Array.from(item.querySelectorAll(".edit-folder-list")).forEach(function (subitem) {
       subitem.addEventListener('click', function (event) {
-        
+
         var editid = item.querySelector(".card").getAttribute('id');
         var getEditid = editid.split("-")[1];
         var checkid = item.querySelector(".form-check .form-check-input").getAttribute('id')
@@ -492,7 +492,7 @@ function fileDetailShow() {
       var filelistSize = item.querySelector(".filelist-size").innerHTML;
       var filelistCreate = item.querySelector(".filelist-create").innerHTML;
       var filelistType = item.querySelector(".filelist-type").innerHTML;
-      
+
 
       document.querySelector("#file-overview .file-icon i").className = filelistIcon;
       Array.from(document.querySelectorAll("#file-overview .file-name")).forEach(function (elm) {

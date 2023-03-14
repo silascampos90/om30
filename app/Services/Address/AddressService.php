@@ -9,11 +9,11 @@ class PatientService implements PatientServiceContracts
     /**
      * @var PatientRepositoryContracts
      */
-    protected $addressRepository;
+    protected $patientRepository;
 
-    public function __construct(PatientRepositoryContracts $addressRepository)
+    public function __construct(PatientRepositoryContracts $patientRepository)
     {
-        $this->addressRepository = $addressRepository;
+        $this->patientRepository = $patientRepository;
     }
 
     /**
@@ -21,6 +21,6 @@ class PatientService implements PatientServiceContracts
      */
     public function store(array $date)
     {
-        return $this->addressRepository->store($date);
+        return $this->patientRepository->store($date);
     }
 }

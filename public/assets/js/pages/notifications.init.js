@@ -6,7 +6,7 @@ Contact: Themesbrand@gmail.com
 File: Notifications init js
 */
 
-// Bordered Toast 
+// Bordered Toast
 var toastTrigger2 = document.getElementById("borderedToast1Btn");
 var toastLiveExample2 = document.getElementById("borderedToast1");
 if (toastTrigger2 && toastLiveExample2) {

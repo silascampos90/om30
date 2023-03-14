@@ -427,13 +427,13 @@ function refreshCallbacks() {
                 var itemValues = orderList.get({
                     id: itemId,
                 });
-    
+
                 Array.from(itemValues).forEach(function (x) {
                     deleteid = new DOMParser().parseFromString(x._values.id, "text/html");
-    
+
                     var isElem = deleteid.body.firstElementChild;
                     var isdeleteid = deleteid.body.firstElementChild.innerHTML;
-    
+
                     if (isdeleteid == itemId) {
                         document.getElementById("delete-record").addEventListener("click", function () {
                             orderList.remove("id", isElem.outerHTML);
@@ -444,7 +444,7 @@ function refreshCallbacks() {
             });
         });
     }
-    
+
     if (editBtns){
         Array.from(editBtns).forEach(function (btn) {
             btn.addEventListener("click", function (e) {
@@ -500,7 +500,7 @@ function refreshCallbacks() {
 }
 
 function clearFields() {
-    
+
     customerNameField.value = "";
     productNameField.value = "";
     dateField.value = "";

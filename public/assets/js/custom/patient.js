@@ -21,11 +21,9 @@ $('#patientSave').click(function(e) {
     e.preventDefault();
 
     patient.name = $("input[name=name]").val();
-    patient.motherName = $("input[name=motherName]").val();
+    patient.mother_name = $("input[name=motherName]").val();
     patient.cpf = $("input[name=cpf]").val();
-    patient.cns = $("input[name=cns]").val();
-
-    console.log(patient);
+    patient.cns = $("input[name=cns]").val();    ;
 
     if (validarFormulario()) {
             $.ajax({

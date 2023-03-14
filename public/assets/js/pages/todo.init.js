@@ -372,7 +372,7 @@ document.getElementById("creattask-form").addEventListener("submit", function (e
 
     var errorMsg = document.getElementById("task-error-msg");
     errorMsg.style.display = "block";
-    
+
     var text;
     if(inputTitle.length == 0){
       text = "Please enter task name";
@@ -400,7 +400,7 @@ document.getElementById("creattask-form").addEventListener("submit", function (e
         errorMsg.innerHTML = text;
         return false;
     }
-    
+
     if (assignedTo.length > 0) {
         Array.from(assignedTo).forEach(function (ele) {
             var imgpath = ele.querySelector(".avatar-xxs img").getAttribute('src');
@@ -736,7 +736,7 @@ function editTodoList() {
 
                     Array.from(document.querySelectorAll(".select-element .dropdown-menu ul li a")).forEach(function (subElem) {
                         var nameelem = subElem.querySelector(".flex-grow-1").innerHTML;
-                        
+
                         item.assignedto.map(function (subItem) {
                             if (subItem.assigneeName == nameelem) {
                                 subElem.classList.add("active");
@@ -755,7 +755,7 @@ function editTodoList() {
                             return subElem;
                         });
                     });
-                    
+
                     var assigneelength = document.querySelectorAll('.select-element .dropdown-menu .dropdown-item.active').length;
                     document.getElementById("total-assignee").innerHTML = assigneelength
 

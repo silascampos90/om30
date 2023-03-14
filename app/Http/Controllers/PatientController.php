@@ -28,8 +28,14 @@ class PatientController extends Controller
 
     public function store(PatientRequest $request)
     {
-        $validated = $request->validated();
-        dd($validated);
-        dd($request->all());
+        try {
+            $validated = $request->validated();
+
+            $patient = $this->patientService->store($validated);
+
+            return $this->patientService->store($validated);
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
 }

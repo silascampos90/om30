@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Repositories\Patient;
+namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-interface BaseRepositoryContract
+interface BaseRepositoryContracts
 {
     public function getById(int $id);
 

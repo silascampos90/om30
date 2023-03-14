@@ -207,7 +207,7 @@ Array.prototype.slice.call(forms).forEach(function (form) {
                     website: websiteField.value,
                     contact_email: contact_emailField.value,
                     since: sinceField.value
-                    
+
                 });
                 companyList.sort('id', { order: "desc" });
                 document.getElementById("close-modal").click();
@@ -278,7 +278,7 @@ function ischeckboxcheck() {
             } else {
                 e.target.closest("tr").classList.remove("table-active");
             }
-  
+
             var checkedCount = document.querySelectorAll('[name="chk_child"]:checked').length;
             if (e.target.closest("tr").classList.contains("table-active")) {
                 (checkedCount > 0) ? document.getElementById("remove-actions").style.display = 'block': document.getElementById("remove-actions").style.display = 'none';
@@ -299,13 +299,13 @@ function refreshCallbacks() {
                 var itemValues = companyList.get({
                     id: itemId,
                 });
-    
+
                 Array.from(itemValues).forEach(function (x) {
                     deleteid = new DOMParser().parseFromString(x._values.id, "text/html");
-    
+
                     var isElem = deleteid.body.firstElementChild;
                     var isdeleteid = deleteid.body.firstElementChild.innerHTML;
-    
+
                     if (isdeleteid == itemId) {
                         document.getElementById("delete-record").addEventListener("click", function () {
                             companyList.remove("id", isElem.outerHTML);
@@ -325,7 +325,7 @@ function refreshCallbacks() {
                 var itemValues = companyList.get({
                     id: itemId,
                 });
-    
+
                 Array.from(itemValues).forEach(function (x) {
                     isid = new DOMParser().parseFromString(x._values.id, "text/html");
                     var selectedid = isid.body.firstElementChild.innerHTML;

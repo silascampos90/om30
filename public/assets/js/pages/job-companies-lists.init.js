@@ -222,7 +222,7 @@ function filterData() {
 
     var filterData = allCompaniesList.filter(function (data) {
         console.log(new Date(data.postDate) <= new Date(pickerVal))
-        
+
         var dateFilter = false;
         var typeFilter = false;
 

@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 
-abstract class BaseRepository implements BaseRepositoryContract
+abstract class BaseRepository implements BaseRepositoryContracts
 {
     public function getById(int $id)
     {

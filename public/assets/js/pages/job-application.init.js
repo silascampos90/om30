@@ -67,7 +67,7 @@ var applicationList = new List("applicationList", options).on("updated", functio
     var isFirst = list.i == 1;
     var isLast = list.i > list.matchingItems.length - list.page;
     // make the Prev and Nex buttons disabled on first and last pages accordingly
-    document.querySelector(".pagination-prev.disabled") ?- 
+    document.querySelector(".pagination-prev.disabled") ?-
 
         document.querySelector(".pagination-prev.disabled").classList.remove("disabled") : "";
     document.querySelector(".pagination-next.disabled") ?

@@ -21,6 +21,7 @@
             <div class="card-body">
                 <div class="live-preview">
                     <form action="" id="patientForm" method="post">
+                        @csrf
                         <div class="row gy-4">
                             <div class="col-xxl-3 col-md-6">
                                 <div>

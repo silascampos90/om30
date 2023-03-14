@@ -220,7 +220,7 @@ Array.prototype.slice.call(forms).forEach(function (form) {
             event.stopPropagation();
         } else {
             event.preventDefault();
-            
+
             if (
                 projectNameField.value !== "" &&
                 tasksTitleField.value !== "" &&
@@ -353,7 +353,7 @@ function ischeckboxcheck() {
             } else {
                 e.target.closest("tr").classList.remove("table-active");
             }
-  
+
             var checkedCount = document.querySelectorAll('[name="chk_child"]:checked').length;
             if (e.target.closest("tr").classList.contains("table-active")) {
                 (checkedCount > 0) ? document.getElementById("remove-actions").style.display = 'block': document.getElementById("remove-actions").style.display = 'none';
@@ -373,12 +373,12 @@ function refreshCallbacks() {
                 var itemValues = tasksList.get({
                     id: itemId,
                 });
-    
+
                 Array.from(itemValues).forEach(function (x) {
                     deleteid = new DOMParser().parseFromString(x._values.id, "text/html");
                     var isElem = deleteid.body.firstElementChild;
                     var isdeleteid = deleteid.body.firstElementChild.innerHTML;
-    
+
                     if (isdeleteid == itemId) {
                         document.getElementById("delete-record").addEventListener("click", function () {
                             tasksList.remove("id", isElem.outerHTML);
@@ -389,7 +389,7 @@ function refreshCallbacks() {
             });
         });
     }
-    
+
     if (editBtns){
     Array.from(editBtns).forEach(function (btn) {
         btn.addEventListener("click", function (e) {

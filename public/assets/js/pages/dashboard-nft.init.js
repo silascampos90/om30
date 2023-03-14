@@ -552,7 +552,7 @@ if (barchartColors) {
         dataLabels: {
             enabled: false,
             textAnchor: 'top',
-        },  
+        },
         yaxis: {
             labels: {
                 show: false,
@@ -679,7 +679,7 @@ if (vectorMapWorldMarkersColors) {
         ],
         markerStyle: {
             initial: {
-                
+
                 fill: vectorMapWorldMarkersColors[1],
             },
             selected: {

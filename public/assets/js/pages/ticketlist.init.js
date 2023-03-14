@@ -392,13 +392,13 @@ function refreshCallbacks() {
                 var itemValues = ticketsList.get({
                     id: itemId,
                 });
-    
+
                 Array.from(itemValues).forEach(function (x) {
                     deleteid = new DOMParser().parseFromString(x._values.id, "text/html");
-    
+
                     var isElem = deleteid.body.firstElementChild;
                     var isdeleteid = deleteid.body.firstElementChild.innerHTML;
-    
+
                     if (isdeleteid == itemId) {
                         document.getElementById("delete-record").addEventListener("click", function () {
                             ticketsList.remove("id", isElem.outerHTML);
@@ -418,7 +418,7 @@ function refreshCallbacks() {
                 var itemValues = ticketsList.get({
                     id: itemId,
                 });
-    
+
                 Array.from(itemValues).forEach(function (x) {
                     isid = new DOMParser().parseFromString(x._values.id, "text/html");
                     var selectedid = isid.body.firstElementChild.innerHTML;
@@ -430,7 +430,7 @@ function refreshCallbacks() {
                         assignedtoNameField.value = x._values.assignedto;
                         dateField.value = x._values.create_date;
                         dateDueField.value = x._values.due_date;
-    
+
                         if (example) example.destroy();
                         example = new Choices(priorityField, {
                             searchEnabled: false
@@ -438,7 +438,7 @@ function refreshCallbacks() {
                         val = new DOMParser().parseFromString(x._values.priority, "text/html");
                         var selected = val.body.firstElementChild.innerHTML;
                         example.setChoiceByValue(selected);
-    
+
                         if (statusVal) statusVal.destroy();
                         statusVal = new Choices(statusField, {
                             searchEnabled: false
@@ -446,12 +446,12 @@ function refreshCallbacks() {
                         val = new DOMParser().parseFromString(x._values.status, "text/html");
                         var statusSelec = val.body.firstElementChild.innerHTML;
                         statusVal.setChoiceByValue(statusSelec);
-    
+
                         flatpickr("#date-field", {
                             dateFormat: "d M, Y",
                             defaultDate: x._values.create_date,
                         });
-    
+
                         flatpickr("#duedate-field", {
                             dateFormat: "d M, Y",
                             defaultDate: x._values.due_date,

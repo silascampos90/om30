@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if(document.getElementById("countdown")){
         document.getElementById("countdown").innerHTML = countDownBlock;
     }
-        // If the count down is over, write some text 
+        // If the count down is over, write some text
         if (distance < 0) {
             clearInterval(countDown);
             document.getElementById("countdown").innerHTML = '<div class="countdown-endtxt">The countdown has ended!</div>';

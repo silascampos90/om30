@@ -68,7 +68,7 @@ if (document.querySelectorAll(".form-steps"))
                 button.setAttribute("data-position", i);
                 button.addEventListener("click", function () {
                     form.classList.remove('was-validated');
-           
+
                     var getProgressBar = button.getAttribute("data-progressbar");
                     if (getProgressBar) {
                         var totalLength = document.getElementById("custom-progress-bar").querySelectorAll("li").length - 1;
