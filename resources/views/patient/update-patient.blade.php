@@ -20,16 +20,9 @@
             </div><!-- end card header -->
             <div class="card-body">
                 <div class="live-preview">
-                    <form action="" enctype="multipart/form-data" id="patientForm" class="" method="post" >
+                    <form action="" id="patientForm" class="" method="post">
                         @csrf
                         <div class="row gy-4">
-                            <div class="col-xxl-2 col-md-3">
-                                <div>
-                                    <label for="basiInput" class="form-label">Foto do Paciente</label>
-                                    <input type="file" name="foto" class="form-control" id="basiInput" required>
-                                </div>
-
-                            </div>
                             <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label for="basiInput" class="form-label">Nome do Paciente</label>
@@ -46,7 +39,7 @@
                                 </div>
                             </div>
                             <!--end col-->
-                            <div class="col-xxl-2 col-md-2">
+                            <div class="col-xxl-3 col-md-6">
                                 <div>
                                     <label for="placeholderInput" class="form-label">CPF</label>
                                     <input type="text" name="cpf" class="form-control" id="patient_cpf"
@@ -54,10 +47,10 @@
                                 </div>
                             </div>
                             <!--end col-->
-                            <div class="col-xxl-2 col-md-2">
+                            <div class="col-xxl-3 col-md-6">
                                 <div class="has-validation">
                                     <label for="valueInput" class="form-label">CNS</label>
-                                    <input type="text" id="patientCns" onchange="" maxlength="15" class="form-control" name="cns"
+                                    <input type="text" id="patientCns" onchange="validateCns(this.value)" maxlength="15" class="form-control" name="cns"
                                         placeholder="Número do cartão nacional do sus" required>
                                         <div id="patientCnsError" class="invalid-feedback">
                                             Cartão do SUS inválido.

@@ -25,6 +25,7 @@ class PatientRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'foto' => 'required',
             'mother_name' => 'required',
             'cpf' => 'required',
             'cns' => 'required',

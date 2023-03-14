@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Builders\Responses\ResponseBuilder;
 use App\Http\Requests\CepRequest;
 use App\Http\Requests\PatientRequest;
+use App\Http\Resources\PatientListResource;
+use App\Http\Resources\PatientResource;
 use App\Http\Resources\ViaCepResource;
 use App\Services\Address\AddressServiceContracts;
 use App\Services\Patient\PatientServiceContracts;
@@ -37,6 +39,38 @@ class PatientController extends Controller
     public function view()
     {
         return view('patient.form-patient');
+    }
+
+    public function list()
+    {
+        try {
+            $patients = PatientListResource::collection($this->patientService->getWithRelation('address'))->resolve();
+
+            return view('patient.list-patient', [
+                'patients' => $patients
+            ]);
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+            ->status(Response::HTTP_BAD_REQUEST)
+            ->message($e->getMessage())
+            ->build();
+        }
+    }
+
+    public function update($id)
+    {
+        try {
+            $patients = (object) PatientResource::make($this->patientService->getByIdAndWithRelations($id, ['address']))->resolve();
+
+            return view('patient.update-patient', [
+                'patients' => $patients
+            ]);
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_BAD_REQUEST)
+                ->message($e->getMessage())
+                ->build();
+        }
     }
 
     /**

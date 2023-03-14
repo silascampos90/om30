@@ -34,8 +34,12 @@
                 <li class="menu-title"><span>@lang('translation.menu')
                 </span></li>
                 <li class="nav-item">
-                    <a class="nav-link menu-link" href="#sidebarDashboards" role="button" aria-expanded="false">
+                    <a class="nav-link menu-link" href="{{route('view.patient')}}"role="button" aria-expanded="false">
                         <i class="mdi mdi-account-plus-outline"></i> <span>@lang('translation.user')
+                        </span>
+                    </a>
+                    <a class="nav-link menu-link" href="{{route('list.patient')}}" role="button" aria-expanded="false">
+                        <i class="mdi mdi-account-plus-outline"></i> <span> Listar Usuários
                         </span>
                     </a>
                     <a class="nav-link menu-link" href="#sidebarDashboards" role="button" aria-expanded="false">

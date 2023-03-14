@@ -1,3 +1,8 @@
+$(document).ready(function() {
+    $('#patientList').DataTable();
+});
+
+
 const patient = {
     name: null,
     motherName: null,
@@ -29,26 +34,60 @@ $('#patientSave').click(function(e) {
     patient.state = $("input[name=state]").val();
     patient.city = $("input[name=city]").val();
 
-    if (validarFormulario()) {
-            $.ajax({
-                method: 'post',
-                url: 'api/patient/store',
-                data: patient
-            }).fail(function(res) {
-                showToasfy('success', 'Sucesso', res.msg)
+    formData = new FormData();
+    formData.append('name', $("input[name=name]").val());
+    formData.append('foto', $('input[name=foto]')[0].files[0]);
+    formData.append('mother_name', $("input[name=mother_name]").val());
+    formData.append('cpf', $("input[name=cpf]").val());
+    formData.append('cns', $("input[name=cns]").val());
+    formData.append('cep', $("input[name=cep]").val());
+    formData.append('address', $("input[name=address]").val());
+    formData.append('complement', $("input[name=complement]").val());
+    formData.append('number', $("input[name=number]").val());
+    formData.append('district', $("input[name=district]").val());
+    formData.append('state', $("input[name=state]").val());
+    formData.append('city', $("input[name=city]").val());
 
-            }).done(function(res) {
-                if (res.sucesso == true) {
-                    showToasfy('success', 'Sucesso', res.msg)
-                } else {
-                    res.msg.map(function($dado) {
-                        showToasfy('error', 'Erro', $dado);
-                    })
+    $.ajax({
+        url: 'api/patient/store',
+        type: 'POST',
+        data: formData,
+        success: function(data) {
+            alert(data)
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        xhr: function() { // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                myXhr.upload.addEventListener('progress', function() {
+                    /* faz alguma coisa durante o progresso do upload */
+                }, false);
+            }
+            return myXhr;
+        }
+    });
+    // if (validarFormulario()) {
+    //         $.ajax({
+    //             type: 'post',
+    //             url: 'api/patient/store',
+    //             data: formData
+    //         }).fail(function(res) {
+    //             showToasfy('success', 'Sucesso', res.msg)
 
-                };
-            });
+    //         }).done(function(res) {
+    //             if (res.sucesso == true) {
+    //                 showToasfy('success', 'Sucesso', res.msg)
+    //             } else {
+    //                 res.msg.map(function($dado) {
+    //                     showToasfy('error', 'Erro', $dado);
+    //                 })
 
-    }
+    //             };
+    //         });
+
+    // }
 });
 
 $('#getAddresCep').click(function(e) {
