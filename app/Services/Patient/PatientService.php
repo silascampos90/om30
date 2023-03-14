@@ -41,8 +41,9 @@ class PatientService implements PatientServiceContracts
             $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
             $avatarPath = public_path('/images/patient');
             $avatar->move($avatarPath, $avatarName);
+
+            $date['foto'] = '/images/patient/' . $avatarName;
         }
-        $date['foto'] = '/images/patient/' . $avatarName;
 
         return $this->patientRepository->store($date);
     }
@@ -94,11 +95,9 @@ class PatientService implements PatientServiceContracts
     public function findPatientCep(array $cep)
     {
         $cep = $cep['cep'];
-        $cacheKey = 'viaCep';
 
-        return Cache::store('redis')
-            ->remember($cacheKey, 86400, function () use ($cep) {
-                return $this->viaCepClient->get("{$cep}/json/");
-            });
+        return Cache::store('redis')->remember($cep, 86400, function () use ($cep) {
+            return $this->viaCepClient->get("{$cep}/json/");
+        });
     }
 }

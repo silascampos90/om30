@@ -110,6 +110,38 @@ $('#patientUpdate').click(function(e) {
     });
 });
 
+$('#patientUpload').click(function(e) {
+
+    e.preventDefault();
+
+    formData = new FormData();
+    formData.append('file', $('input[name=file]')[0].files[0]);
+
+    $.ajax({
+        url: window.location.origin+'/api/patient/file/upload',
+        type: 'POST',
+        data: formData,
+        success: function(data, status) {
+            showToasfy(data.message, 'success');
+        },
+        error: function (data, status, error) {
+            showToasfy(data.message, 'error');
+        },
+        cache: false,
+        contentType: false,
+        processData: false,
+        xhr: function() { // Custom XMLHttpRequest
+            var myXhr = $.ajaxSettings.xhr();
+            if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                myXhr.upload.addEventListener('progress', function() {
+                    /* faz alguma coisa durante o progresso do upload */
+                }, false);
+            }
+            return myXhr;
+        }
+    });
+});
+
 $('#getAddresCep').click(function(e) {
 
 e.preventDefault();

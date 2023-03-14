@@ -42,7 +42,7 @@
                         <i class="mdi mdi-account-plus-outline"></i> <span> Listar Usuários
                         </span>
                     </a>
-                    <a class="nav-link menu-link" href="#sidebarDashboards" role="button" aria-expanded="false">
+                    <a class="nav-link menu-link" href="{{route('upload.patient')}}" href="#sidebarDashboards" role="button" aria-expanded="false">
                         <i class="mdi mdi-upload"></i> <span>@lang('translation.upload')
                         </span>
                     </a>
