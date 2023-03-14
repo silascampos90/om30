@@ -24,9 +24,11 @@ $('#patientSave').click(function(e) {
 
     formData = new FormData();
     formData.append('name', $("input[name=name]").val());
-    formData.append('foto', $('input[name=foto]')[0].files[0]);
+    if( $('input[name=foto]').val() != '' ){
+        formData.append('foto', $('input[name=foto]')[0].files[0]);
+    }
     formData.append('mother_name', $("input[name=mother_name]").val());
-    formData.append('cpf', $("input[name=cpf]").val());
+    formData.append('cpf', removeDot($("input[name=cpf]").val()));
     formData.append('cns', $("input[name=cns]").val());
     formData.append('cep', $("input[name=cep]").val());
     formData.append('address', $("input[name=address]").val());
@@ -37,11 +39,14 @@ $('#patientSave').click(function(e) {
     formData.append('city', $("input[name=city]").val());
 
     $.ajax({
-        url: 'api/patient/store',
+        url: window.location.origin+'/api/patient/store',
         type: 'POST',
         data: formData,
         success: function(data) {
-            console.log(data)
+            showToasfy(data.message, 'success');
+        },
+        error: function (data, status, error) {
+            showToasfy(data.message, 'error');
         },
         cache: false,
         contentType: false,
@@ -65,11 +70,11 @@ $('#patientUpdate').click(function(e) {
     formData = new FormData();
     formData.append('name', $("input[name=name]").val());
 
-    if( document.getElementById("foto").files.length == 0 ){
+    if( $('input[name=foto]').val() != '' ){
         formData.append('foto', $('input[name=foto]')[0].files[0]);
     }
-    formData.append('mother_name', $("input[name=mother_name]").val());
-    formData.append('cpf', $("input[name=cpf]").val());
+    formData.append('mother_name', $("input[name=motherName]").val());
+    formData.append('cpf', removeDot($("input[name=cpf]").val()));
     formData.append('cns', $("input[name=cns]").val());
     formData.append('cep', $("input[name=cep]").val());
     formData.append('address', $("input[name=address]").val());
@@ -84,8 +89,11 @@ $('#patientUpdate').click(function(e) {
         url: window.location.origin+'/api/patient/update',
         type: 'POST',
         data: formData,
-        success: function(data) {
-            console.log(data)
+        success: function(data, status) {
+            showToasfy(data.message, 'success');
+        },
+        error: function (data, status, error) {
+            showToasfy(data.message, 'error');
         },
         cache: false,
         contentType: false,
@@ -112,7 +120,7 @@ patient.cep = removeDot($("input[name=cep]").val());
     $('#iconSearch').hide();
     $.ajax({
         method: 'post',
-        url: 'api/patient/cep/find',
+        url: window.location.origin+'/api/patient/cep/find',
         data: patient
     }).fail(function(res, status) {
 

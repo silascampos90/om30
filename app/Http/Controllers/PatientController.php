@@ -106,12 +106,12 @@ class PatientController extends Controller
     {
         try {
             $data = $request->all();
-            $validated = $request->validated();
+            $request->validated();
 
-            $return = $this->addressService->update($data);
+            $this->patientService->update($data);
+            $this->addressService->update($data);
 
             return ResponseBuilder::init()
-                ->data($return)
                 ->status(Response::HTTP_CREATED)
                 ->message('Paciente Atualizado Com Sucesso')
                 ->build();

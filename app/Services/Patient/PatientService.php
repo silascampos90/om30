@@ -4,6 +4,7 @@ namespace App\Services\Patient;
 
 use App\Repositories\Patient\PatientRepositoryContracts;
 use App\Services\ViaCep\ViaCepServiceContracts;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cache;
 
 class PatientService implements PatientServiceContracts
@@ -62,6 +63,34 @@ class PatientService implements PatientServiceContracts
         return $this->patientRepository->getByIdAndWithRelations($id, $relation);
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function update(array $data)
+    {
+        $patient = Arr::only($data, [
+            'name',
+            'mother_name',
+            'cpf',
+            'cns',
+            'foto',
+        ]);
+
+        if (request()->has('foto')) {
+            $avatar = request()->file('foto');
+            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatarPath = public_path('/images/patient');
+            $avatar->move($avatarPath, $avatarName);
+
+            $patient['foto'] = '/images/patient/' . $avatarName;
+        }
+
+        return $this->patientRepository->updateById($patient, $data['id']);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function findPatientCep(array $cep)
     {
         $cep = $cep['cep'];
