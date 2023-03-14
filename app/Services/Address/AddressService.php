@@ -25,4 +25,12 @@ class AddressService implements AddressServiceContracts
         $data['patient_id'] = $patient->id;
         return $this->patientRepository->store($data);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function update(array $data)
+    {
+        return $this->patientRepository->updateById($data, $data['id']);
+    }
 }

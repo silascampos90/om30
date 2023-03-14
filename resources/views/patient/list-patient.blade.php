@@ -59,7 +59,7 @@
                                     </button>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li>
-                                            <a href="{{route('update.patient', ['id'=> $pat['id']] )}}"
+                                            <a href="{{route('show.patient', ['id'=> $pat['id']] )}}"
                                                 class="dropdown-item edit-item-btn">
                                                 <i class="ri-pencil-fill align-bottom me-2 text-muted">
                                                 </i>

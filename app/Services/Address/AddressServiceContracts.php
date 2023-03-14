@@ -11,4 +11,9 @@ interface AddressServiceContracts
      * @param Patient $patient
      */
     public function store(array $data, Patient $patient);
+
+    /**
+     * @param array $data
+     */
+    public function update(array $data);
 }

@@ -57,13 +57,13 @@ class PatientController extends Controller
         }
     }
 
-    public function update($id)
+    public function show($id)
     {
         try {
-            $patients = (object) PatientResource::make($this->patientService->getByIdAndWithRelations($id, ['address']))->resolve();
+            $patient = (object) PatientResource::make($this->patientService->getByIdAndWithRelations($id, ['address']))->resolve();
 
             return view('patient.update-patient', [
-                'patients' => $patients
+                'patient' => $patient
             ]);
         } catch (\Exception $e) {
             return ResponseBuilder::init()
@@ -90,6 +90,30 @@ class PatientController extends Controller
                 ->data($data)
                 ->status(Response::HTTP_CREATED)
                 ->message('Paciente Criado Com Sucesso')
+                ->build();
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_BAD_REQUEST)
+                ->message($e->getMessage())
+                ->build();
+        }
+    }
+
+    /**
+     * @param PatientRequest $request
+     */
+    public function update(PatientRequest $request)
+    {
+        try {
+            $data = $request->all();
+            $validated = $request->validated();
+
+            $return = $this->addressService->update($data);
+
+            return ResponseBuilder::init()
+                ->data($return)
+                ->status(Response::HTTP_CREATED)
+                ->message('Paciente Atualizado Com Sucesso')
                 ->build();
         } catch (\Exception $e) {
             return ResponseBuilder::init()
