@@ -15,6 +15,7 @@ class Patient extends Model
         'mother_name',
         'cpf',
         'cns',
+        'foto',
     ];
 
     public function address(): BelongsTo

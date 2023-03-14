@@ -11,7 +11,7 @@ class PatientService implements PatientServiceContracts
     /**
      * @var PatientRepositoryContracts
      */
-    protected $addressRepository;
+    protected $patientRepository;
 
     /**
      * @var PatientRepositoryContracts
@@ -23,10 +23,10 @@ class PatientService implements PatientServiceContracts
      * @param ViaCepServiceContracts
      */
     public function __construct(
-        PatientRepositoryContracts $addressRepository,
+        PatientRepositoryContracts $patientRepository,
         ViaCepServiceContracts $viaCepClient
     ) {
-        $this->addressRepository = $addressRepository;
+        $this->patientRepository = $patientRepository;
         $this->viaCepClient = $viaCepClient;
     }
 
@@ -35,7 +35,31 @@ class PatientService implements PatientServiceContracts
      */
     public function store(array $date)
     {
-        return $this->addressRepository->store($date);
+        if (request()->has('foto')) {
+            $avatar = request()->file('foto');
+            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatarPath = public_path('/images/patient');
+            $avatar->move($avatarPath, $avatarName);
+        }
+        $date['foto'] = '/images/patient/' . $avatarName;
+
+        return $this->patientRepository->store($date);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getWithRelation(string $relation)
+    {
+        return $this->patientRepository->getWithRelation($relation);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getByIdAndWithRelations(int $id, array $relation)
+    {
+        return $this->patientRepository->getByIdAndWithRelations($id, $relation);
     }
 
     public function findPatientCep(array $cep)

@@ -15,3 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PatientController::class, 'view'])->name('view.patient');
+Route::get('/list', [PatientController::class, 'list'])->name('list.patient');
+Route::get('/patient/update/{id}', [PatientController::class, 'show'])->name('show.patient');

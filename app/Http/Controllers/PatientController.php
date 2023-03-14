@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Builders\Responses\ResponseBuilder;
 use App\Http\Requests\CepRequest;
 use App\Http\Requests\PatientRequest;
+use App\Http\Resources\PatientListResource;
+use App\Http\Resources\PatientResource;
 use App\Http\Resources\ViaCepResource;
 use App\Services\Address\AddressServiceContracts;
 use App\Services\Patient\PatientServiceContracts;
@@ -39,6 +41,38 @@ class PatientController extends Controller
         return view('patient.form-patient');
     }
 
+    public function list()
+    {
+        try {
+            $patients = PatientListResource::collection($this->patientService->getWithRelation('address'))->resolve();
+
+            return view('patient.list-patient', [
+                'patients' => $patients
+            ]);
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+            ->status(Response::HTTP_BAD_REQUEST)
+            ->message($e->getMessage())
+            ->build();
+        }
+    }
+
+    public function show($id)
+    {
+        try {
+            $patient = (object) PatientResource::make($this->patientService->getByIdAndWithRelations($id, ['address']))->resolve();
+
+            return view('patient.update-patient', [
+                'patient' => $patient
+            ]);
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_BAD_REQUEST)
+                ->message($e->getMessage())
+                ->build();
+        }
+    }
+
     /**
      * @param PatientRequest $request
      */
@@ -56,6 +90,30 @@ class PatientController extends Controller
                 ->data($data)
                 ->status(Response::HTTP_CREATED)
                 ->message('Paciente Criado Com Sucesso')
+                ->build();
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_BAD_REQUEST)
+                ->message($e->getMessage())
+                ->build();
+        }
+    }
+
+    /**
+     * @param PatientRequest $request
+     */
+    public function update(PatientRequest $request)
+    {
+        try {
+            $data = $request->all();
+            $validated = $request->validated();
+
+            $return = $this->addressService->update($data);
+
+            return ResponseBuilder::init()
+                ->data($return)
+                ->status(Response::HTTP_CREATED)
+                ->message('Paciente Atualizado Com Sucesso')
                 ->build();
         } catch (\Exception $e) {
             return ResponseBuilder::init()

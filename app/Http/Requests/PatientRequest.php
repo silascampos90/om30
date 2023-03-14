@@ -28,6 +28,11 @@ class PatientRequest extends FormRequest
             'mother_name' => 'required',
             'cpf' => 'required',
             'cns' => 'required',
+            'cep' => 'required',
+            'address' => 'required',
+            'district' => 'required',
+            'state' => 'required',
+            'city' => 'required',
         ];
     }
 
