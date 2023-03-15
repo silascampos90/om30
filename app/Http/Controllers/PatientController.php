@@ -152,6 +152,28 @@ class PatientController extends Controller
     }
 
     /**
+     * @param Request $request
+     */
+    public function getPatientByCpfOrName(Request $request)
+    {
+        try {
+            $data = $request->all();
+
+            $patients = PatientResource::collection($this->patientService->getPatientPaginate($data))->response()->getData(true);
+
+            return ResponseBuilder::init()
+                ->data($patients)
+                ->status(Response::HTTP_CREATED)
+                ->build();
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_BAD_REQUEST)
+                ->message($e->getMessage())
+                ->build();
+        }
+    }
+
+    /**
      * @param CepRequest $request
      */
     public function cepFind(CepRequest $request)

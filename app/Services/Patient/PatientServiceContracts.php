@@ -34,4 +34,9 @@ interface PatientServiceContracts
     * @param arrat $data
     */
     public function remove(array $data);
+
+    /**
+    * @param array $data
+    */
+    public function getPatientPaginate(array $data);
 }
