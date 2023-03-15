@@ -36,13 +36,13 @@ class PatientService implements PatientServiceContracts
      */
     public function store(array $date)
     {
-        if (request()->has('foto')) {
-            $avatar = request()->file('foto');
+        if (request()->has('photo')) {
+            $avatar = request()->file('photo');
             $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
             $avatarPath = public_path('/images/patient');
             $avatar->move($avatarPath, $avatarName);
 
-            $date['foto'] = '/images/patient/' . $avatarName;
+            $date['photo'] = '/images/patient/' . $avatarName;
         }
 
         return $this->patientRepository->store($date);

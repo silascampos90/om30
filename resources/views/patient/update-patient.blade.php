@@ -25,7 +25,7 @@
                         <div class="row gy-4">
                             <div class="col-xxl-2 col-md-3">
                                 <div class="profile-user position-relative d-inline-block mx-auto  mb-4">
-                                    <img src="{{ URL::asset($patient->foto) }}"
+                                    <img src="{{ URL::asset($patient->photo) }}"
                                         class="rounded-circle avatar-xl img-thumbnail user-profile-image  shadow"
                                         alt="user-profile-image">
                                     </div>

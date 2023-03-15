@@ -44,6 +44,9 @@ $('#patientSave').click(function(e) {
         data: formData,
         success: function(data) {
             showToasfy(data.message, 'success');
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
         },
         error: function (data, status, error) {
             showToasfy(data.responseJSON.message, 'error');
@@ -94,6 +97,9 @@ $('#patientUpdate').click(function(e) {
         },
         error: function (data, status, error) {
             showToasfy(data.responseJSON.message, 'error');
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
         },
         cache: false,
         contentType: false,
@@ -123,6 +129,9 @@ $('#patientUpload').click(function(e) {
         data: formData,
         success: function(data, status) {
             showToasfy(data.message, 'success');
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
         },
         error: function (data, status, error) {
             showToasfy(data.responseJSON.message, 'error');
@@ -205,7 +214,7 @@ function saudacao(id, user) {
                         confirmButtonClass: 'btn btn-primary w-xs mt-2',
                         buttonsStyling: false
                     })
-                    location.reload();
+
                     setTimeout(function() {
                         location.reload();
                     }, 3000);
