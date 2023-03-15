@@ -8,7 +8,6 @@ use App\Http\Requests\PatientRequest;
 use App\Http\Resources\PatientListResource;
 use App\Http\Resources\PatientResource;
 use App\Http\Resources\ViaCepResource;
-use App\Jobs\ReadCsvFileJob;
 use App\Services\Address\AddressServiceContracts;
 use App\Services\Patient\PatientServiceContracts;
 use Illuminate\Http\Response;
@@ -39,7 +38,8 @@ class PatientController extends Controller
 
     public function view()
     {
-        ReadCsvFileJob::dispatch('teste/path');
+        $csvFile = fopen(public_path('csv/patient/1678838476.csv'), 'r');
+
         return view('patient.form-patient');
     }
 

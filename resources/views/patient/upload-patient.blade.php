@@ -20,7 +20,7 @@
             </div><!-- end card header -->
             <div class="card-body">
                 <div class="live-preview">
-                    <form action="" enctype="multipart/form-data" id="patientUpload" class="" method="post" >
+                    <form action="" enctype="multipart/form-data" id="" class="" method="post" >
                         @csrf
                         <div class="row gy-4">
                             <div class="col-xxl-10 col-md-10">

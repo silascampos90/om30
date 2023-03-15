@@ -25,7 +25,7 @@ $('#patientSave').click(function(e) {
     formData = new FormData();
     formData.append('name', $("input[name=name]").val());
     if( $('input[name=foto]').val() != '' ){
-        formData.append('foto', $('input[name=foto]')[0].files[0]);
+        formData.append('photo', $('input[name=foto]')[0].files[0]);
     }
     formData.append('mother_name', $("input[name=mother_name]").val());
     formData.append('cpf', removeDot($("input[name=cpf]").val()));
@@ -46,7 +46,7 @@ $('#patientSave').click(function(e) {
             showToasfy(data.message, 'success');
         },
         error: function (data, status, error) {
-            showToasfy(data.message, 'error');
+            showToasfy(data.responseJSON.message, 'error');
         },
         cache: false,
         contentType: false,
@@ -93,7 +93,7 @@ $('#patientUpdate').click(function(e) {
             showToasfy(data.message, 'success');
         },
         error: function (data, status, error) {
-            showToasfy(data.message, 'error');
+            showToasfy(data.responseJSON.message, 'error');
         },
         cache: false,
         contentType: false,
@@ -125,7 +125,7 @@ $('#patientUpload').click(function(e) {
             showToasfy(data.message, 'success');
         },
         error: function (data, status, error) {
-            showToasfy(data.message, 'error');
+            showToasfy(data.responseJSON.message, 'error');
         },
         cache: false,
         contentType: false,
