@@ -138,6 +138,7 @@
                             <div class="" style="display: flex;justify-content: end; margin-top: 10px;">
                                 <button type="button" style="margin-right: 10px" class="btn btn-warning waves-effect waves-light">Cancelar</button>
                                 <button type="button" id="patientSave" class="btn btn-primary waves-effect waves-light">Salvar</button>
+
                             </div>
                         </div>
                     </form>

@@ -29,4 +29,9 @@ interface PatientServiceContracts
     * @param array $data
     */
     public function update(array $data);
+
+    /**
+    * @param arrat $data
+    */
+    public function remove(array $data);
 }

@@ -59,6 +59,15 @@ class PatientService implements PatientServiceContracts
     /**
      * @inheritdoc
      */
+    public function remove(array $data)
+    {
+        $id = $data['id'];
+        return $this->patientRepository->delete($id);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getByIdAndWithRelations(int $id, array $relation)
     {
         return $this->patientRepository->getByIdAndWithRelations($id, $relation);
