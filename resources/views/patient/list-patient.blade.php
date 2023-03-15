@@ -2,6 +2,9 @@
 @section('title')
 @lang('translation.basic-elements')
 @endsection
+@section('css')
+    <link href="{{ URL::asset('assets/libs/sweetalert2/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+@endsection
 @section('content')
 @component('components.breadcrumb')
 @slot('li_1')
@@ -52,29 +55,14 @@
                             <td>{{$pat['cns']}}</td>
                             <td>{{$pat['city']}}</td>
                             <td>
-                                <div class="dropdown d-inline-block">
-                                    <button class="btn btn-soft-secondary btn-sm dropdown" type="button"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="ri-more-fill align-middle"></i>
-                                    </button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li>
-                                            <a href="{{route('show.patient', ['id'=> $pat['id']] )}}"
-                                                class="dropdown-item edit-item-btn">
-                                                <i class="ri-pencil-fill align-bottom me-2 text-muted">
-                                                </i>
-                                                Editar
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <div>
-                                                <button wire:click="deleteProfile({{$pat['id']}})" class="dropdown-item remove-item-btn" data-bs-toggle="modal" data-bs-target="#deleteProfileModal">
-                                                    <i class="ri-delete-bin-fill align-bottom me-2 text-muted"></i>
-                                                    Deletar
-                                                </button>
-                                            </div>
-                                        </li>
-                                    </ul>
+                                <div>
+                                    <a href="{{route('show.patient', ['id'=> $pat['id']] )}}"
+                                        class="btn btn-sm btn-warning waves-effect waves-light">
+                                        <i class="mdi mdi-human-edit">
+                                        </i>
+                                        Editar
+                                    </a>
+                                    <button type="button" id="deletarPatient" onclick="saudacao({{$pat['id']}},'{{$pat['name']}}')" class="btn btn-sm btn-danger waves-effect waves-light"><i class="mdi mdi-delete"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -90,6 +78,8 @@
 <!--end row-->
 @endsection
 @section('script')
+    <script src="{{ URL::asset('/assets/libs/sweetalert2/sweetalert2.min.js') }}"></script>
+    <script src="{{ URL::asset('/assets/js/pages/sweetalerts.init.js') }}"></script>
     <script src="{{ URL::asset('/assets/libs/prismjs/prismjs.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/app.min.js') }}"></script>
     <script src="{{ URL::asset('/assets/js/custom/patient.js') }}"></script>

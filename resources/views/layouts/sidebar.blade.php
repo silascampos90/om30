@@ -3,7 +3,7 @@
     <!-- LOGO -->
     <div class="navbar-brand-box">
         <!-- Dark Logo-->
-        <a href="index" class="logo logo-dark">
+        <a href="/" class="logo logo-dark">
             <span class="logo-sm">
                 <img src="{{ URL::asset('assets/images/om-teste.png') }}" alt="" height="22">
             </span>
@@ -12,7 +12,7 @@
             </span>
         </a>
         <!-- Light Logo-->
-        <a href="index" class="logo logo-light">
+        <a href="/" class="logo logo-light">
             <span class="logo-sm">
                 <img src="{{ URL::asset('assets/images/om-teste.png') }}" alt="" height="22">
             </span>
@@ -35,11 +35,11 @@
                 </span></li>
                 <li class="nav-item">
                     <a class="nav-link menu-link" href="{{route('view.patient')}}"role="button" aria-expanded="false">
-                        <i class="mdi mdi-account-plus-outline"></i> <span>@lang('translation.user')
+                        <i class="mdi mdi-account-plus-outline"></i> <span> Cadastrar @lang('translation.user')
                         </span>
                     </a>
                     <a class="nav-link menu-link" href="{{route('list.patient')}}" role="button" aria-expanded="false">
-                        <i class="mdi mdi-account-plus-outline"></i> <span> Listar Usuários
+                        <i class="mdi mdi-account-details"></i> <span> Listar Usuários
                         </span>
                     </a>
                     <a class="nav-link menu-link" href="{{route('upload.patient')}}" href="#sidebarDashboards" role="button" aria-expanded="false">

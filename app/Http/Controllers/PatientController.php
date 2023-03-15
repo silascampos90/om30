@@ -10,6 +10,7 @@ use App\Http\Resources\PatientResource;
 use App\Http\Resources\ViaCepResource;
 use App\Services\Address\AddressServiceContracts;
 use App\Services\Patient\PatientServiceContracts;
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
 class PatientController extends Controller
@@ -38,8 +39,6 @@ class PatientController extends Controller
 
     public function view()
     {
-        $csvFile = fopen(public_path('csv/patient/1678838476.csv'), 'r');
-
         return view('patient.form-patient');
     }
 
@@ -121,6 +120,28 @@ class PatientController extends Controller
             return ResponseBuilder::init()
                 ->status(Response::HTTP_CREATED)
                 ->message('Paciente Atualizado Com Sucesso')
+                ->build();
+        } catch (\Exception $e) {
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_BAD_REQUEST)
+                ->message($e->getMessage())
+                ->build();
+        }
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function remove(Request $request)
+    {
+        try {
+            $data = $request->all();
+
+            $this->patientService->remove($data);
+
+            return ResponseBuilder::init()
+                ->status(Response::HTTP_CREATED)
+                ->message('Paciente Removido Com Sucesso')
                 ->build();
         } catch (\Exception $e) {
             return ResponseBuilder::init()
