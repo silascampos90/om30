@@ -59,6 +59,15 @@ class PatientService implements PatientServiceContracts
     /**
      * @inheritdoc
      */
+    public function getPatientPaginate(array $relation)
+    {
+        $dataFind = isset($relation['term']) ? $relation['term'] : null;
+        return $this->patientRepository->getPatientPaginate($dataFind);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function remove(array $data)
     {
         $id = $data['id'];

@@ -19,4 +19,17 @@ class PatientRepository extends BaseRepository implements PatientRepositoryContr
     {
         $this->model = $model;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getPatientPaginate(?string $data)
+    {
+        return $this->model->with('address')->where(function ($query) use ($data) {
+            if (! empty($data)) {
+                $query->where('name', 'like', '%' . $data . '%')
+                ->orWhere('cpf', 'like', '%' . $data . '%');
+            }
+        })->paginate(1);
+    }
 }

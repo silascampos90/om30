@@ -57,7 +57,7 @@
                             <div class="col-xxl-2 col-md-2">
                                 <div class="has-validation">
                                     <label for="valueInput" class="form-label">CNS</label>
-                                    <input type="text" id="patientCns" onchange="" maxlength="15" class="form-control" name="cns"
+                                    <input type="text" id="patientCns" onchange="validateCns(this.value)" maxlength="15" class="form-control" name="cns"
                                         placeholder="Número do cartão nacional do sus" required>
                                         <div id="patientCnsError" class="invalid-feedback">
                                             Cartão do SUS inválido.
