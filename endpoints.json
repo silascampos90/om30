@@ -1,0 +1,651 @@
+{
+	"info": {
+		"_postman_id": "04207dee-d8d0-42b4-b78e-005b6cf226d2",
+		"name": "om30",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=97b56934d169e0399080a71183fff35a; XSRF-TOKEN=eyJpdiI6IjZGdENaNEJERTlRN05SeUk5T3pJTWc9PSIsInZhbHVlIjoiblpHRE9waEd1RGRGbjhXSlZ1V1ZVMGN1bitWaXBtZHRQMStPR1lreGo1S1g5N1B6UFRrSmtnb21yYjJSNDM2bGh1dlFoTGViUldOSkRZUFdML2dMb1VtNmNPcklMNnI4ZVBMclpoeFdVUWhuVWpsTzR0Y2had1pEbVhDNTNtVDQiLCJtYWMiOiIxYTM1ZmEwOGNjOWNkNjQ1MWYzZDMwNWQ0NTdiNzg4Yjc3MjEzOWIwMDU5NzJmOWIxZWUyNTZhY2EzMTJiZDQzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InpZSnd3MHdjT2RwUHZ0QjlkL3daSHc9PSIsInZhbHVlIjoiejV3bi9jaW9oR1RuclFYQjNVN3lNdzNGWXV0Vk9lVkdWZHhGREhOTjFnRS9KZlpPUjlkUzAxb0MyYlppOFh5WmZvMjY4Vk9Tb2htTnpaYnczRFEzWEhuR2I5Wjk2S0cwbnlkRkprNk5id0RyTUVWMTBtSEVnRm5BdjU5ZEEyTnYiLCJtYWMiOiI3Y2M3YmIyMjMzZDY5YjgxMDIxYmJlMjMzOTNmMWQ5MTg3Zjk1ODAyNGEwYTIyNzZhMTY4ZTdlY2ExM2JkYjU4IiwidGFnIjoiIn0%3D"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost/patient/update/26"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Silas Campos",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"value": "undefined",
+							"type": "text"
+						},
+						{
+							"key": "mother_name",
+							"value": "awdawdawd",
+							"type": "text"
+						},
+						{
+							"key": "cpf",
+							"value": "12.312-39",
+							"type": "text"
+						},
+						{
+							"key": "cns",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "cep",
+							"value": "40480060",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Rua Antônio Carlos Magalhães 123123",
+							"type": "text"
+						},
+						{
+							"key": "complement",
+							"value": "132",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "35",
+							"type": "text"
+						},
+						{
+							"key": "district",
+							"value": "Lobato",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "BA",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Salvador",
+							"type": "text"
+						},
+						{
+							"key": "id",
+							"value": "26",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/patient/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"patient",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Store",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=97b56934d169e0399080a71183fff35a; XSRF-TOKEN=eyJpdiI6IjZGdENaNEJERTlRN05SeUk5T3pJTWc9PSIsInZhbHVlIjoiblpHRE9waEd1RGRGbjhXSlZ1V1ZVMGN1bitWaXBtZHRQMStPR1lreGo1S1g5N1B6UFRrSmtnb21yYjJSNDM2bGh1dlFoTGViUldOSkRZUFdML2dMb1VtNmNPcklMNnI4ZVBMclpoeFdVUWhuVWpsTzR0Y2had1pEbVhDNTNtVDQiLCJtYWMiOiIxYTM1ZmEwOGNjOWNkNjQ1MWYzZDMwNWQ0NTdiNzg4Yjc3MjEzOWIwMDU5NzJmOWIxZWUyNTZhY2EzMTJiZDQzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InpZSnd3MHdjT2RwUHZ0QjlkL3daSHc9PSIsInZhbHVlIjoiejV3bi9jaW9oR1RuclFYQjNVN3lNdzNGWXV0Vk9lVkdWZHhGREhOTjFnRS9KZlpPUjlkUzAxb0MyYlppOFh5WmZvMjY4Vk9Tb2htTnpaYnczRFEzWEhuR2I5Wjk2S0cwbnlkRkprNk5id0RyTUVWMTBtSEVnRm5BdjU5ZEEyTnYiLCJtYWMiOiI3Y2M3YmIyMjMzZDY5YjgxMDIxYmJlMjMzOTNmMWQ5MTg3Zjk1ODAyNGEwYTIyNzZhMTY4ZTdlY2ExM2JkYjU4IiwidGFnIjoiIn0%3D"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost/patient/update/26"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Silas Campos",
+							"type": "text"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/D:/Loja/om-teste-ico.png"
+						},
+						{
+							"key": "mother_name",
+							"value": "awdawdawd",
+							"type": "text"
+						},
+						{
+							"key": "cpf",
+							"value": "32165496532",
+							"type": "text"
+						},
+						{
+							"key": "cns",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "cep",
+							"value": "40480060",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "Rua Antônio Carlos Magalhães 123123",
+							"type": "text"
+						},
+						{
+							"key": "complement",
+							"value": "132",
+							"type": "text"
+						},
+						{
+							"key": "number",
+							"value": "35",
+							"type": "text"
+						},
+						{
+							"key": "district",
+							"value": "Lobato",
+							"type": "text"
+						},
+						{
+							"key": "state",
+							"value": "BA",
+							"type": "text"
+						},
+						{
+							"key": "city",
+							"value": "Salvador",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/patient/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"patient",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=97b56934d169e0399080a71183fff35a; XSRF-TOKEN=eyJpdiI6IjZGdENaNEJERTlRN05SeUk5T3pJTWc9PSIsInZhbHVlIjoiblpHRE9waEd1RGRGbjhXSlZ1V1ZVMGN1bitWaXBtZHRQMStPR1lreGo1S1g5N1B6UFRrSmtnb21yYjJSNDM2bGh1dlFoTGViUldOSkRZUFdML2dMb1VtNmNPcklMNnI4ZVBMclpoeFdVUWhuVWpsTzR0Y2had1pEbVhDNTNtVDQiLCJtYWMiOiIxYTM1ZmEwOGNjOWNkNjQ1MWYzZDMwNWQ0NTdiNzg4Yjc3MjEzOWIwMDU5NzJmOWIxZWUyNTZhY2EzMTJiZDQzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InpZSnd3MHdjT2RwUHZ0QjlkL3daSHc9PSIsInZhbHVlIjoiejV3bi9jaW9oR1RuclFYQjNVN3lNdzNGWXV0Vk9lVkdWZHhGREhOTjFnRS9KZlpPUjlkUzAxb0MyYlppOFh5WmZvMjY4Vk9Tb2htTnpaYnczRFEzWEhuR2I5Wjk2S0cwbnlkRkprNk5id0RyTUVWMTBtSEVnRm5BdjU5ZEEyTnYiLCJtYWMiOiI3Y2M3YmIyMjMzZDY5YjgxMDIxYmJlMjMzOTNmMWQ5MTg3Zjk1ODAyNGEwYTIyNzZhMTY4ZTdlY2ExM2JkYjU4IiwidGFnIjoiIn0%3D"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost/patient/update/26"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "25",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/patient/remove",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"patient",
+						"remove"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find By CPF or Name",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=97b56934d169e0399080a71183fff35a; XSRF-TOKEN=eyJpdiI6IjZGdENaNEJERTlRN05SeUk5T3pJTWc9PSIsInZhbHVlIjoiblpHRE9waEd1RGRGbjhXSlZ1V1ZVMGN1bitWaXBtZHRQMStPR1lreGo1S1g5N1B6UFRrSmtnb21yYjJSNDM2bGh1dlFoTGViUldOSkRZUFdML2dMb1VtNmNPcklMNnI4ZVBMclpoeFdVUWhuVWpsTzR0Y2had1pEbVhDNTNtVDQiLCJtYWMiOiIxYTM1ZmEwOGNjOWNkNjQ1MWYzZDMwNWQ0NTdiNzg4Yjc3MjEzOWIwMDU5NzJmOWIxZWUyNTZhY2EzMTJiZDQzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InpZSnd3MHdjT2RwUHZ0QjlkL3daSHc9PSIsInZhbHVlIjoiejV3bi9jaW9oR1RuclFYQjNVN3lNdzNGWXV0Vk9lVkdWZHhGREhOTjFnRS9KZlpPUjlkUzAxb0MyYlppOFh5WmZvMjY4Vk9Tb2htTnpaYnczRFEzWEhuR2I5Wjk2S0cwbnlkRkprNk5id0RyTUVWMTBtSEVnRm5BdjU5ZEEyTnYiLCJtYWMiOiI3Y2M3YmIyMjMzZDY5YjgxMDIxYmJlMjMzOTNmMWQ5MTg3Zjk1ODAyNGEwYTIyNzZhMTY4ZTdlY2ExM2JkYjU4IiwidGFnIjoiIn0%3D"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost/patient/update/26"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "term",
+							"value": "852",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/patient/find",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"patient",
+						"find"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload CSV",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=97b56934d169e0399080a71183fff35a; XSRF-TOKEN=eyJpdiI6IjZGdENaNEJERTlRN05SeUk5T3pJTWc9PSIsInZhbHVlIjoiblpHRE9waEd1RGRGbjhXSlZ1V1ZVMGN1bitWaXBtZHRQMStPR1lreGo1S1g5N1B6UFRrSmtnb21yYjJSNDM2bGh1dlFoTGViUldOSkRZUFdML2dMb1VtNmNPcklMNnI4ZVBMclpoeFdVUWhuVWpsTzR0Y2had1pEbVhDNTNtVDQiLCJtYWMiOiIxYTM1ZmEwOGNjOWNkNjQ1MWYzZDMwNWQ0NTdiNzg4Yjc3MjEzOWIwMDU5NzJmOWIxZWUyNTZhY2EzMTJiZDQzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InpZSnd3MHdjT2RwUHZ0QjlkL3daSHc9PSIsInZhbHVlIjoiejV3bi9jaW9oR1RuclFYQjNVN3lNdzNGWXV0Vk9lVkdWZHhGREhOTjFnRS9KZlpPUjlkUzAxb0MyYlppOFh5WmZvMjY4Vk9Tb2htTnpaYnczRFEzWEhuR2I5Wjk2S0cwbnlkRkprNk5id0RyTUVWMTBtSEVnRm5BdjU5ZEEyTnYiLCJtYWMiOiI3Y2M3YmIyMjMzZDY5YjgxMDIxYmJlMjMzOTNmMWQ5MTg3Zjk1ODAyNGEwYTIyNzZhMTY4ZTdlY2ExM2JkYjU4IiwidGFnIjoiIn0%3D"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost/patient/update/26"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/D:/Loja/om-teste-ico.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/patient/file/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"patient",
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload CSV",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+					},
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Cookie",
+						"value": "PHPSESSID=97b56934d169e0399080a71183fff35a; XSRF-TOKEN=eyJpdiI6IjZGdENaNEJERTlRN05SeUk5T3pJTWc9PSIsInZhbHVlIjoiblpHRE9waEd1RGRGbjhXSlZ1V1ZVMGN1bitWaXBtZHRQMStPR1lreGo1S1g5N1B6UFRrSmtnb21yYjJSNDM2bGh1dlFoTGViUldOSkRZUFdML2dMb1VtNmNPcklMNnI4ZVBMclpoeFdVUWhuVWpsTzR0Y2had1pEbVhDNTNtVDQiLCJtYWMiOiIxYTM1ZmEwOGNjOWNkNjQ1MWYzZDMwNWQ0NTdiNzg4Yjc3MjEzOWIwMDU5NzJmOWIxZWUyNTZhY2EzMTJiZDQzIiwidGFnIjoiIn0%3D; laravel_session=eyJpdiI6InpZSnd3MHdjT2RwUHZ0QjlkL3daSHc9PSIsInZhbHVlIjoiejV3bi9jaW9oR1RuclFYQjNVN3lNdzNGWXV0Vk9lVkdWZHhGREhOTjFnRS9KZlpPUjlkUzAxb0MyYlppOFh5WmZvMjY4Vk9Tb2htTnpaYnczRFEzWEhuR2I5Wjk2S0cwbnlkRkprNk5id0RyTUVWMTBtSEVnRm5BdjU5ZEEyTnYiLCJtYWMiOiI3Y2M3YmIyMjMzZDY5YjgxMDIxYmJlMjMzOTNmMWQ5MTg3Zjk1ODAyNGEwYTIyNzZhMTY4ZTdlY2ExM2JkYjU4IiwidGFnIjoiIn0%3D"
+					},
+					{
+						"key": "Origin",
+						"value": "http://localhost"
+					},
+					{
+						"key": "Referer",
+						"value": "http://localhost/patient/update/26"
+					},
+					{
+						"key": "Sec-Fetch-Dest",
+						"value": "empty"
+					},
+					{
+						"key": "Sec-Fetch-Mode",
+						"value": "cors"
+					},
+					{
+						"key": "Sec-Fetch-Site",
+						"value": "same-origin"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Chromium\";v=\"110\", \"Not A(Brand\";v=\"24\", \"Google Chrome\";v=\"110\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Silas/Desktop/import.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/patient/file/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"patient",
+						"file",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

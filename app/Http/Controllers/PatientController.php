@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Builders\Responses\ResponseBuilder;
 use App\Http\Requests\CepRequest;
+use App\Http\Requests\PatientRemoveRequest;
 use App\Http\Requests\PatientRequest;
 use App\Http\Resources\PatientListResource;
 use App\Http\Resources\PatientResource;
@@ -130,9 +131,9 @@ class PatientController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param PatientRemoveRequest $request
      */
-    public function remove(Request $request)
+    public function remove(PatientRemoveRequest $request)
     {
         try {
             $data = $request->all();
