@@ -27,7 +27,7 @@ $('#patientSave').click(function(e) {
     if( $('input[name=foto]').val() != '' ){
         formData.append('photo', $('input[name=foto]')[0].files[0]);
     }
-    formData.append('mother_name', $("input[name=mother_name]").val());
+    formData.append('mother_name', $("input[name=motherName]").val());
     formData.append('cpf', removeDot($("input[name=cpf]").val()));
     formData.append('cns', $("input[name=cns]").val());
     formData.append('cep', $("input[name=cep]").val());
@@ -74,7 +74,7 @@ $('#patientUpdate').click(function(e) {
     formData.append('name', $("input[name=name]").val());
 
     if( $('input[name=foto]').val() != '' ){
-        formData.append('foto', $('input[name=foto]')[0].files[0]);
+        formData.append('photo', $('input[name=foto]')[0].files[0]);
     }
     formData.append('mother_name', $("input[name=motherName]").val());
     formData.append('cpf', removeDot($("input[name=cpf]").val()));
