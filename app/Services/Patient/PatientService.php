@@ -41,8 +41,9 @@ class PatientService implements PatientServiceContracts
             $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
             $avatarPath = public_path('/images/patient');
             $avatar->move($avatarPath, $avatarName);
+
+            $date['foto'] = '/images/patient/' . $avatarName;
         }
-        $date['foto'] = '/images/patient/' . $avatarName;
 
         return $this->patientRepository->store($date);
     }
@@ -73,16 +74,16 @@ class PatientService implements PatientServiceContracts
             'mother_name',
             'cpf',
             'cns',
-            'foto',
+            'photo',
         ]);
 
-        if (request()->has('foto')) {
-            $avatar = request()->file('foto');
+        if (request()->has('photo')) {
+            $avatar = request()->file('photo');
             $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
             $avatarPath = public_path('/images/patient');
             $avatar->move($avatarPath, $avatarName);
 
-            $patient['foto'] = '/images/patient/' . $avatarName;
+            $patient['photo'] = '/images/patient/' . $avatarName;
         }
 
         return $this->patientRepository->updateById($patient, $data['id']);
@@ -94,11 +95,9 @@ class PatientService implements PatientServiceContracts
     public function findPatientCep(array $cep)
     {
         $cep = $cep['cep'];
-        $cacheKey = 'viaCep';
 
-        return Cache::store('redis')
-            ->remember($cacheKey, 86400, function () use ($cep) {
-                return $this->viaCepClient->get("{$cep}/json/");
-            });
+        return Cache::store('redis')->remember($cep, 86400, function () use ($cep) {
+            return $this->viaCepClient->get("{$cep}/json/");
+        });
     }
 }

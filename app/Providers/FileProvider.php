@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
-use App\Services\Cns\CnsService;
 use Illuminate\Support\ServiceProvider;
-use App\Services\Cns\CnsServiceContracts;
+use App\Services\File\FileServiceContracts;
+use App\Services\File\FileService;
 
-class CnsProvider extends ServiceProvider
+class FileProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -14,15 +14,15 @@ class CnsProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(
-            CnsServiceContracts::class,
-            CnsService::class
+            FileServiceContracts::class,
+            FileService::class
         );
     }
 
     public function provides()
     {
         return [
-            CnsServiceContracts::class,
+            FileServiceContracts::class,
         ];
     }
 }

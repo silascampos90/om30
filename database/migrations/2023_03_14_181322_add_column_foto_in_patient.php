@@ -13,7 +13,7 @@ return new class () extends Migration {
     public function up()
     {
         Schema::table('patients', function (Blueprint $table) {
-            $table->string('foto')->nullable()->after('cpf');
+            $table->string('photo')->nullable()->after('cpf');
         });
     }
 
@@ -25,7 +25,7 @@ return new class () extends Migration {
     public function down()
     {
         Schema::table('patients', function (Blueprint $table) {
-            $table->dropColumn('foto');
+            $table->dropColumn('photo');
         });
     }
 };

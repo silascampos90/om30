@@ -38,7 +38,14 @@ class PatientController extends Controller
 
     public function view()
     {
+        $csvFile = fopen(public_path('csv/patient/1678838476.csv'), 'r');
+
         return view('patient.form-patient');
+    }
+
+    public function upload()
+    {
+        return view('patient.upload-patient');
     }
 
     public function list()
