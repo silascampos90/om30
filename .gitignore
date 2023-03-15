@@ -2,8 +2,8 @@
 /public/build
 /public/hot
 /public/storage
-/public/images
-public/images
+/public/images/*
+/public/csv/*
 /storage/*.key
 /vendor
 .env
